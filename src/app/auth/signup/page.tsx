@@ -10,7 +10,7 @@
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
 
 interface PasswordValidation {
@@ -20,7 +20,7 @@ interface PasswordValidation {
   hasNumber: boolean;
 }
 
-export default function SignUp() {
+function SignUpContent() {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
@@ -268,6 +268,28 @@ export default function SignUp() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SignUp() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+          <div className="w-full max-w-md bg-white rounded-lg shadow-md p-8">
+            <div className="animate-pulse space-y-4">
+              <div className="h-8 bg-gray-200 rounded"></div>
+              <div className="h-10 bg-gray-200 rounded"></div>
+              <div className="h-10 bg-gray-200 rounded"></div>
+              <div className="h-10 bg-gray-200 rounded"></div>
+              <div className="h-10 bg-gray-200 rounded"></div>
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <SignUpContent />
+    </Suspense>
   );
 }
 
