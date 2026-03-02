@@ -13,14 +13,25 @@ datasource db {
   provider = "sqlite"
 }
 
+// Role enumeration for role-based access control
+enum Role {
+  USER  // Regular user - can only view/manage own students
+  ADMIN // Administrator - can manage all students and users
+}
+
 model User {
   id            String   @id @default(cuid())
   name          String?
   email         String?  @unique
+  password      String?  // Hashed password for custom credentials authentication
   emailVerified DateTime?
   image         String?
+  role          Role     @default(USER) // Role-based access control
   accounts      Account[]
   sessions      Session[]
+  students      Student[] // User's managed students
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
 model Account {
@@ -64,4 +75,8 @@ model Student {
   name      String
   email     String   @unique
   enrolled  DateTime @default(now())
+  userId    String   // Foreign key to the user who created this student
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
