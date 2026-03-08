@@ -1,0 +1,190 @@
+---
+/**
+ * Header Component
+ * Navigation header du portfolio
+ */
+interface Props {
+  pathname?: string;
+}
+
+const { pathname = '/' } = Astro.props;
+
+const navItems = [
+  { label: 'Accueil', href: '/' },
+  { label: 'À propos', href: '/#about' },
+  { label: 'Projets', href: '/projects' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<header class="header">
+  <div class="container header-content">
+    <div class="header-logo">
+      <a href="/" class="logo-link" title="Retour à l'accueil">
+        <span class="logo-text">YB</span>
+      </a>
+    </div>
+    
+    <nav class="nav">
+      <ul class="nav-list">
+        {navItems.map((item) => (
+          <li>
+            <a 
+              href={item.href}
+              class={`nav-link ${pathname === item.href ? 'active' : ''}`}
+              aria-current={pathname === item.href ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Mobile menu button (visible only on small screens) -->
+    <button 
+      class="mobile-menu-btn"
+      aria-label="Ouvrir le menu"
+      id="mobile-menu-btn"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .header {
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+  }
+
+  .header-logo {
+    flex-shrink: 0;
+  }
+
+  .logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: var(--accent);
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: background-color var(--transition-fast);
+  }
+
+  .logo-link:hover {
+    background-color: var(--primary);
+  }
+
+  .logo-text {
+    text-decoration: none;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--space-xl);
+    margin: 0;
+  }
+
+  .nav-link {
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+    padding: var(--space-xs) var(--space-sm);
+    border-bottom: 2px solid transparent;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: var(--accent);
+  }
+
+  .nav-link.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    gap: 5px;
+  }
+
+  .mobile-menu-btn span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+    }
+
+    .nav.active {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--background);
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-md);
+    }
+
+    .nav.active .nav-list {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const nav = document.querySelector('.nav');
+
+  if (mobileMenuBtn && nav) {
+    mobileMenuBtn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      mobileMenuBtn.classList.toggle('active');
+    });
+
+    // Close menu on link click
+    const navLinks = nav.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+      });
+    });
+  }
+</script>

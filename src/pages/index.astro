@@ -1,0 +1,176 @@
+---
+/**
+ * Home Page
+ * Page d'accueil du portfolio
+ */
+import Layout from '../layouts/Layout.astro';
+import AboutSection from '../components/AboutSection.astro';
+import EducationSection from '../components/EducationSection.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import { portfolioData } from '../data/portfolio';
+
+const { personal, education, experience, projects } = portfolioData;
+---
+
+<Layout title="Accueil" description="Portfolio professionnel de Yousef Boualame">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Bonjour, je suis <span class="accent">{personal.name}</span></h1>
+        <p class="subtitle">{personal.title}</p>
+        <p class="description">{personal.bio}</p>
+        
+        <div class="hero-cta">
+          <a href="/projects" class="btn btn-primary">Voir mes projets</a>
+          <a href="/contact" class="btn btn-secondary">Me contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <AboutSection />
+
+  <!-- Education Section -->
+  <EducationSection items={education} />
+
+  <!-- Experience Section -->
+  <ExperienceSection items={experience} />
+
+  <!-- Projects Section (Featured) -->
+  <ProjectsSection items={projects} featured={true} />
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Prêt à collaborer?</h2>
+      <p>Je suis toujours ouvert à de nouveaux projets et opportunités.</p>
+      <a href="/contact" class="btn btn-primary btn-large">Démarrons un projet</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--background) 100%);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-text {
+    max-width: 600px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-xl);
+    max-width: 500px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .hero-cta .btn {
+    padding: var(--space-md) var(--space-lg);
+    font-size: 1.05rem;
+  }
+
+  .cta-section {
+    padding: var(--space-2xl) 0;
+    background-color: var(--background-alt);
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .btn-large {
+    padding: var(--space-md) var(--space-2xl);
+    font-size: 1.05rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .hero {
+      min-height: 500px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-xl) 0;
+      min-height: auto;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+
+    .hero-cta {
+      gap: var(--space-sm);
+    }
+
+    .hero-cta .btn {
+      padding: var(--space-sm) var(--space-md);
+      font-size: 1rem;
+      flex: 1;
+    }
+
+    .cta-section h2 {
+      font-size: 1.75rem;
+    }
+  }
+</style>

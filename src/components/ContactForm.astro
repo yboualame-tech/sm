@@ -1,0 +1,301 @@
+---
+/**
+ * Contact Form Component
+ * Formulaire de contact avec validation
+ */
+---
+
+<section class="contact-section">
+  <div class="container">
+    <h2>Me Contacter</h2>
+    <p class="contact-intro">Vous avez un projet en tête ? N'hésitez pas à me contacter !</p>
+
+    <div class="contact-content">
+      <form id="contact-form" class="contact-form" action="" method="POST">
+        <div class="form-group">
+          <label for="name">Nom complet *</label>
+          <input 
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Votre nom"
+            aria-required="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input 
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="votre@email.com"
+            aria-required="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Sujet *</label>
+          <input 
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            placeholder="Sujet de votre message"
+            aria-required="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea 
+            id="message"
+            name="message"
+            required
+            placeholder="Décrivez votre projet ou votre demande..."
+            aria-required="true"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-large">
+          Envoyer le message
+        </button>
+
+        <p class="form-note">* Champs obligatoires</p>
+      </form>
+
+      <div class="contact-info">
+        <div class="info-card">
+          <h3>Informations de Contact</h3>
+          
+          <div class="info-item">
+            <strong>Email</strong>
+            <a href="mailto:y.boualame@esisa.ac.ma">y.boualame@esisa.ac.ma</a>
+          </div>
+
+          <div class="info-item">
+            <strong>Location</strong>
+            <p>Casablanca, Maroc</p>
+          </div>
+
+          <div class="info-item">
+            <strong>Réponse Temps</strong>
+            <p>Généralement sous 24-48 heures</p>
+          </div>
+        </div>
+
+        <div class="social-links-card">
+          <h3>Me Suivre</h3>
+          <ul class="social-list">
+            <li>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                Twitter
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    padding: var(--space-2xl) 0;
+    background-color: var(--background);
+  }
+
+  .contact-section h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .contact-intro {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xl);
+    color: var(--text-secondary);
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .form-group label {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: var(--space-sm);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-light);
+  }
+
+  .btn-large {
+    padding: var(--space-md) var(--space-lg);
+    font-size: 1.05rem;
+  }
+
+  .form-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .info-card,
+  .social-links-card {
+    background-color: var(--background-alt);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .info-card h3,
+  .social-links-card h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .info-item {
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .info-item strong {
+    display: block;
+    color: var(--accent);
+    margin-bottom: var(--space-xs);
+  }
+
+  .info-item p,
+  .info-item a {
+    margin: 0;
+  }
+
+  .social-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin: 0;
+    padding: 0;
+  }
+
+  .social-list a {
+    color: var(--accent);
+    font-weight: 500;
+    transition: color var(--transition-fast);
+  }
+
+  .social-list a:hover {
+    color: var(--primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: var(--space-xl) 0;
+    }
+
+    .contact-section h2 {
+      font-size: 1.75rem;
+    }
+
+    .contact-content {
+      gap: var(--space-lg);
+    }
+  }
+</style>
+
+<script>
+  const contactForm = document.getElementById('contact-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e: Event) => {
+      const form = e.target as HTMLFormElement;
+      
+      // Validation basique
+      const name = (form.querySelector('#name') as HTMLInputElement)?.value;
+      const email = (form.querySelector('#email') as HTMLInputElement)?.value;
+      const subject = (form.querySelector('#subject') as HTMLInputElement)?.value;
+      const message = (form.querySelector('#message') as HTMLTextAreaElement)?.value;
+
+      if (!name || !email || !subject || !message) {
+        alert('Veuillez remplir tous les champs obligatoires');
+        e.preventDefault();
+        return;
+      }
+
+      // Validation email simple
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Veuillez entrer une adresse email valide');
+        e.preventDefault();
+        return;
+      }
+
+      // Pour une utilisation en production, connectez à un service d'email
+      // ou un backend pour traiter le formulaire
+      console.log({name, email, subject, message});
+      
+      // Feedback utilisateur
+      alert('Merci pour votre message! Je vous répondrai bientôt.');
+      form.reset();
+      e.preventDefault();
+    });
+  }
+</script>

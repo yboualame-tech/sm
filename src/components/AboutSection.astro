@@ -1,0 +1,199 @@
+---
+/**
+ * AboutSection Component
+ * Section À propos avec compétences
+ */
+import { portfolioData } from '../data/portfolio';
+
+const { personal, about } = portfolioData;
+---
+
+<section id="about" class="about-section">
+  <div class="container">
+    <h2>À propos de moi</h2>
+    
+    <div class="about-content">
+      <div class="about-text">
+        <p>{about.description}</p>
+        
+        <div class="skills-grid">
+          <div class="skills-category">
+            <h4>Frontend</h4>
+            <ul class="skills-list">
+              {about.skills.frontend.map((skill) => (
+                <li class="skill-tag">{skill}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="skills-category">
+            <h4>Backend</h4>
+            <ul class="skills-list">
+              {about.skills.backend.map((skill) => (
+                <li class="skill-tag">{skill}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="skills-category">
+            <h4>Outils</h4>
+            <ul class="skills-list">
+              {about.skills.tools.map((skill) => (
+                <li class="skill-tag">{skill}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-sidebar">
+        <div class="about-card">
+          <h3>Informations</h3>
+          <dl class="info-list">
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a href={`mailto:${personal.email}`}>{personal.email}</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>{personal.location}</dd>
+            </div>
+            <div>
+              <dt>Statut</dt>
+              <dd>Disponible pour projets</dd>
+            </div>
+          </dl>
+        </div>
+
+        <a href="/contact" class="btn btn-primary" style="display: block; text-align: center;">
+          Commencez un projet
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: var(--space-2xl) 0;
+    background-color: var(--background);
+  }
+
+  .about-section h2 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-lg);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .skills-category h4 {
+    color: var(--accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+  }
+
+  .skill-tag {
+    background-color: var(--accent-light);
+    color: var(--accent);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+  }
+
+  .skill-tag:hover {
+    background-color: var(--accent);
+    color: white;
+  }
+
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .about-card {
+    background-color: var(--background-alt);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+  }
+
+  .about-card h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .info-list div {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-md);
+  }
+
+  .info-list div:last-child {
+    border-bottom: none;
+  }
+
+  .info-list dt {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .info-list dd {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .about-content {
+      grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-section {
+      padding: var(--space-xl) 0;
+    }
+
+    .about-section h2 {
+      font-size: 1.75rem;
+    }
+  }
+</style>
