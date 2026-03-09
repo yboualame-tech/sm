@@ -11,7 +11,7 @@ export const portfolioData = {
     title: "Développeur Full Stack",
     email: "y.boualame@esisa.ac.ma",
     phone: "+212 6XX XXX XXX",
-    location: "Casablanca, Maroc",
+    location: "Fès, Maroc",
     bio: "Développeur passionné par la création de solutions web innovantes et performantes.",
     image: "/images/profile.jpg" // À remplacer avec votre photo
   },
@@ -131,8 +131,8 @@ export const portfolioData = {
     title: "Contactez-moi",
     description: "Vous avez un projet en tête ? N'hésitez pas à me contacter !",
     social: {
-      github: "https://github.com/yourusername",
-      linkedin: "https://linkedin.com/in/yourusername",
+      github: "https://github.com/yboualame-tech",
+      linkedin: "https://linkedin.com/in/youssef-boualame",
       twitter: "https://twitter.com/yourusername",
       email: "y.boualame@esisa.ac.ma"
     }
