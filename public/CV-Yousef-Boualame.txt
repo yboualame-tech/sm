@@ -1,0 +1,103 @@
+YOUSEF BOUALAME
+Fès, Maroc | y.boualame@esisa.ac.ma
+GitHub: github.com/yboualame-tech | LinkedIn: linkedin.com/in/youssef-boualame
+
+═══════════════════════════════════════════════════════════════════
+
+PROFIL PROFESSIONNEL
+
+Développeur Full Stack passionné par la création de solutions web innovantes et performantes.
+Expertise en technologies frontend et backend, avec une forte capacité à produire un code de qualité,
+maintenable et optimisé pour la performance.
+
+═══════════════════════════════════════════════════════════════════
+
+COMPÉTENCES TECHNIQUES
+
+Frontend
+• HTML5, CSS3, JavaScript (ES6+)
+• React, Astro
+• Tailwind CSS, Bootstrap
+
+Backend
+• Node.js, Express
+• Python
+• Databases: MongoDB, PostgreSQL
+
+Outils & Méthodologies
+• Git, GitHub, Version Control
+• Docker, Kubernetes
+• Vercel, CI/CD
+• Webpack, Build Tools
+
+═══════════════════════════════════════════════════════════════════
+
+EXPÉRIENCE PROFESSIONNELLE
+
+Développeur Full Stack | Projets Personnels
+2024 - Présent
+• Création d'applications web modernes avec React et Astro
+• Architecture et déploiement de solutions backend avec Node.js
+• Gestion de bases de données NoSQL (MongoDB) et SQL (PostgreSQL)
+• Optimisation des performances et accessibilité (WCAG 2.1 AA)
+• Déploiement sur Vercel et GitHub
+
+═══════════════════════════════════════════════════════════════════
+
+FORMATION
+
+Master en Informatique - Génie Logiciel
+ESISA (École Supérieure d'Informatique et des Services Associés)
+2023 - 2025
+Specialization: Développement Web, Architecture Logicielle
+
+Licence en Informatique
+2020 - 2023
+Base solide en algorithmie, programmation et développement
+
+═══════════════════════════════════════════════════════════════════
+
+PROJETS NOTABLES
+
+Portfolio Personnel (Astro + Vercel)
+• Site portfolio moderne construisant avec Astro
+• Design responsive et minimaliste
+• Optimisation des performances (Lighthouse >95)
+• Conformité accessibilité WCAG 2.1 AA
+• Déploiement automatique sur Vercel
+
+Application Todo (React)
+• Application de gestion de tâches avec React
+• Fonctionnalités: CRUD, marquage complétude
+• Design responsive et intuitif
+
+API REST (Node.js + Express)
+• API RESTful avec authentification JWT
+• CRUD operations et validation
+• Déploiement et documentation
+
+═══════════════════════════════════════════════════════════════════
+
+CERTIFICATIONS & FORMATIONS
+
+• Développement Web Avancé
+• Full Stack JavaScript
+• Accessibilité Web (WCAG 2.1)
+
+═══════════════════════════════════════════════════════════════════
+
+LANGUES
+
+Français - Natif
+Anglais - Intermédiaire
+Arabe - Natif
+
+═══════════════════════════════════════════════════════════════════
+
+INTÉRÊTS
+
+• Développement Web Moderne
+• Optimisation des Performances
+• Accessibilité Digitale
+• Open Source
+• Architecture Logicielle

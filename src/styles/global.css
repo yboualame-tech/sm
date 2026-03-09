@@ -225,6 +225,25 @@ button,
   background-color: var(--accent-light);
 }
 
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border-color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-outline:hover {
+  background-color: var(--background-alt);
+  border-color: var(--secondary);
+}
+
+.btn-outline svg {
+  width: 16px;
+  height: 16px;
+}
+
 /* Forms */
 input,
 textarea,
