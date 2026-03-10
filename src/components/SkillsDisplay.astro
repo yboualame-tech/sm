@@ -1,0 +1,60 @@
+---
+/**
+ * SkillsDisplay Component
+ * Displays skills as circular progress charts
+ */
+import SkillChart from './SkillChart.tsx';
+
+export interface SkillsDisplayProps {
+  skills: Array<{
+    name: string;
+    level: number;
+  }>;
+  title?: string;
+}
+
+interface Props {
+  skills: Array<{
+    name: string;
+    level: number;
+  }>;
+  title?: string;
+}
+
+const { skills, title = 'Compétences' } = Astro.props;
+---
+
+<div class="skills-display">
+  {title && <h3>{title}</h3>}
+  <div class="skills-charts-grid">
+    {skills.map((skill) => (
+      <SkillChart client:load skill={skill.name} level={skill.level} />
+    ))}
+  </div>
+</div>
+
+<style>
+  .skills-display {
+    width: 100%;
+  }
+
+  .skills-display h3 {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .skills-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 2.5rem;
+    justify-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .skills-charts-grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 2rem;
+    }
+  }
+</style>

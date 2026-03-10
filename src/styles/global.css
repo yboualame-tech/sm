@@ -5,19 +5,26 @@
  */
 
 :root {
-  /* Couleurs */
-  --primary: #1a1a1a;
-  --secondary: #404040;
-  --accent: #0066cc;
-  --accent-light: #e6f0ff;
+  /* Couleurs - Premium & Professional */
+  --primary: #0f172a;
+  --secondary: #1e293b;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --accent-dark: #1e40af;
   --background: #ffffff;
-  --background-alt: #f8f8f8;
-  --text-primary: #1a1a1a;
-  --text-secondary: #666666;
-  --border: #e0e0e0;
-  --success: #28a745;
-  --warning: #ffc107;
-  --error: #dc3545;
+  --background-alt: #f8fafc;
+  --background-secondary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --border: #e2e8f0;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.12);
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -28,17 +35,25 @@
   --space-2xl: 4rem;
 
   /* Typography */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
   --transition-normal: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
 
   /* Line Height */
   --line-height-tight: 1.2;
@@ -83,64 +98,75 @@ body {
 
 /* Typography */
 h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 3.5rem;
+  font-weight: 800;
   line-height: var(--line-height-tight);
   margin-bottom: var(--space-md);
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
+  color: var(--primary);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: var(--line-height-tight);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+  color: var(--primary);
+  letter-spacing: -0.5px;
 }
 
 h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.875rem;
+  font-weight: 700;
   line-height: var(--line-height-tight);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  color: var(--primary);
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-weight: 600;
   margin-bottom: var(--space-sm);
+  color: var(--primary);
 }
 
 h5 {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: var(--space-xs);
+  color: var(--primary);
 }
 
 h6 {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: var(--space-xs);
+  color: var(--primary);
 }
 
 p {
   margin-bottom: var(--space-md);
   color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: var(--line-height-relaxed);
 }
 
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
+  font-weight: 500;
 }
 
 a:hover {
-  color: var(--primary);
+  color: var(--accent-dark);
   text-decoration: underline;
 }
 
 a:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 /* Images */
@@ -186,57 +212,65 @@ pre code {
 /* Buttons */
 button,
 .btn {
-  padding: var(--space-sm) var(--space-md);
+  padding: 0.75rem 1.5rem;
   border: 2px solid transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-normal);
   font-family: var(--font-sans);
   text-decoration: none;
   display: inline-block;
   text-align: center;
   white-space: nowrap;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary {
   background-color: var(--accent);
   color: white;
   border-color: var(--accent);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary);
-  border-color: var(--primary);
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
 .btn-primary:active {
-  transform: scale(0.98);
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: var(--accent);
-  border-color: var(--accent);
+  background-color: var(--background-secondary);
+  color: var(--primary);
+  border-color: var(--border);
 }
 
 .btn-secondary:hover {
-  background-color: var(--accent-light);
+  background-color: var(--background-alt);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn-outline {
   background-color: transparent;
   color: var(--primary);
-  border-color: var(--primary);
+  border-color: var(--border);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .btn-outline:hover {
-  background-color: var(--background-alt);
-  border-color: var(--secondary);
+  background-color: var(--background-secondary);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn-outline svg {
@@ -244,17 +278,22 @@ button,
   height: 16px;
 }
 
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
 /* Forms */
 input,
 textarea,
 select {
   width: 100%;
-  padding: var(--space-sm);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
   font-family: var(--font-sans);
   font-size: 1rem;
-  transition: border-color var(--transition-fast);
+  transition: all var(--transition-normal);
   background-color: var(--background);
   color: var(--text-primary);
 }
@@ -264,7 +303,7 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-light);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), inset 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 textarea {
@@ -277,6 +316,7 @@ label {
   margin-bottom: var(--space-xs);
   font-weight: 600;
   color: var(--text-primary);
+  font-size: 0.95rem;
 }
 
 /* Utility Classes */
@@ -354,4 +394,72 @@ label {
   .container {
     padding: 0 var(--space-sm);
   }
+}
+
+/* SkillChart Styles */
+.skill-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  background: white;
+  border-radius: 12px;
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.skill-chart:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.skill-circle {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-90deg);
+}
+
+.skill-circle-bg {
+  fill: none;
+  stroke: #e2e8f0;
+  stroke-width: 8;
+}
+
+.skill-circle-progress {
+  fill: none;
+  stroke: url(#skillGradient);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 282.7;
+  stroke-dashoffset: 282.7;
+  transition: stroke-dashoffset 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skill-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.skill-level {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+
+.skill-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.2;
+  max-width: 100%;
+  word-wrap: break-word;
 }

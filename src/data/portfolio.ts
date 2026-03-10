@@ -22,6 +22,29 @@ export const portfolioData = {
     description: `Je suis un développeur full stack avec une passion pour la création de solutions web modernes et efficaces. 
     Avec une expertise en technologies frontend et backend, je m'engage à produire un code de qualité, 
     maintenable et optimisé pour la performance.`,
+    skillsWithLevels: {
+      frontend: [
+        { name: "React", level: 90 },
+        { name: "Astro", level: 85 },
+        { name: "TypeScript", level: 85 },
+        { name: "Tailwind CSS", level: 90 },
+        { name: "HTML/CSS", level: 95 }
+      ],
+      backend: [
+        { name: "Node.js", level: 85 },
+        { name: "Express", level: 80 },
+        { name: "MongoDB", level: 80 },
+        { name: "PostgreSQL", level: 75 },
+        { name: "REST APIs", level: 85 }
+      ],
+      tools: [
+        { name: "Git", level: 90 },
+        { name: "Docker", level: 70 },
+        { name: "Vercel", level: 85 },
+        { name: "VS Code", level: 95 },
+        { name: "GitHub", level: 90 }
+      ]
+    },
     skills: {
       frontend: ["HTML/CSS", "JavaScript", "React", "Astro", "Tailwind CSS"],
       backend: ["Node.js", "Express", "Python", "MongoDB", "PostgreSQL"],
