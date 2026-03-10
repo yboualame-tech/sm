@@ -132,7 +132,7 @@ export const portfolioData = {
     description: "Vous avez un projet en tête ? N'hésitez pas à me contacter !",
     social: {
       github: "https://github.com/yboualame-tech",
-      linkedin: "https://linkedin.com/in/youssef-boualame",
+      linkedin: "https://www.linkedin.com/in/youssef-boualame-7b356834b",
       twitter: "https://twitter.com/yourusername",
       email: "y.boualame@esisa.ac.ma"
     }
