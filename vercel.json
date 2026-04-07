@@ -1,0 +1,7 @@
+{
+  "buildCommand": "make",
+  "outputDirectory": "build",
+  "framework": "services",
+  "serverlessFunctionRegion": "us-east-1",
+  "installCommand": "echo 'No dependencies - C project'"
+}
