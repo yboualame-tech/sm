@@ -1,5 +1,0 @@
-{
-  "buildCommand": "make",
-  "outputDirectory": "build",
-  "framework": "services"
-}
