@@ -1,0 +1,170 @@
+---
+/**
+ * Education Component
+ * Section Éducation avec timeline
+ */
+interface Props {
+  items: any[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="education-section">
+  <div class="container">
+    <h2>Formation</h2>
+    
+    <div class="timeline">
+      {items.map((item) => (
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>{item.degree}</h3>
+              <span class="timeline-date">
+                {item.startYear} - {item.endYear}
+              </span>
+            </div>
+            
+            <p class="timeline-school">{item.school}</p>
+            <p class="timeline-field">Domaine: {item.field}</p>
+            <p>{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .education-section {
+    padding: var(--space-2xl) 0;
+    background-color: var(--background-alt);
+  }
+
+  .education-section h2 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .timeline {
+    position: relative;
+    padding: var(--space-lg) 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      var(--accent),
+      var(--accent-light)
+    );
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-left: 100px;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -70px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--accent);
+    border: 3px solid var(--background);
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+  }
+
+  .timeline-item:hover .timeline-marker {
+    width: 24px;
+    height: 24px;
+    left: -74px;
+    box-shadow: 0 0 0 8px var(--accent-light);
+  }
+
+  .timeline-content {
+    background-color: var(--background);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: all var(--transition-normal);
+  }
+
+  .timeline-item:hover .timeline-content {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateX(4px);
+  }
+
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .timeline-header h3 {
+    margin: 0;
+  }
+
+  .timeline-date {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .timeline-school {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-xs) 0;
+  }
+
+  .timeline-field {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  .timeline-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 10px;
+    }
+
+    .timeline-marker {
+      left: -50px;
+    }
+
+    .timeline-item:hover .timeline-marker {
+      left: -50px;
+    }
+
+    .timeline-item {
+      margin-left: 60px;
+    }
+
+    .timeline-header {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+    }
+  }
+</style>

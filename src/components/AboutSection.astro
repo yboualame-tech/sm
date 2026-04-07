@@ -1,0 +1,240 @@
+---
+/**
+ * AboutSection Component
+ * Section À propos avec compétences en graphiques circulaires
+ */
+import { portfolioData } from '../data/portfolio';
+import SkillChart from './SkillChart.tsx';
+
+const { personal, about } = portfolioData;
+---
+
+<section id="about" class="about-section">
+  <div class="container">
+    <h2>À propos de moi</h2>
+    
+    <div class="about-content">
+      <div class="about-text">
+        <p>{about.description}</p>
+        
+        <div class="skills-sections">
+          <div class="skills-category">
+            <h3>Frontend</h3>
+            <div class="skills-charts-grid">
+              {about.skillsWithLevels.frontend.map((skill) => (
+                <SkillChart client:load skill={skill.name} level={skill.level} />
+              ))}
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3>Backend</h3>
+            <div class="skills-charts-grid">
+              {about.skillsWithLevels.backend.map((skill) => (
+                <SkillChart client:load skill={skill.name} level={skill.level} />
+              ))}
+            </div>
+          </div>
+
+          <div class="skills-category">
+            <h3>Outils & Plateforme</h3>
+            <div class="skills-charts-grid">
+              {about.skillsWithLevels.tools.map((skill) => (
+                <SkillChart client:load skill={skill.name} level={skill.level} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-sidebar">
+        <div class="about-card">
+          <h3>Informations</h3>
+          <dl class="info-list">
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a href={`mailto:${personal.email}`}>{personal.email}</a>
+              </dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>{personal.location}</dd>
+            </div>
+            <div>
+              <dt>Statut</dt>
+              <dd>Disponible pour projets</dd>
+            </div>
+          </dl>
+        </div>
+
+        <a href="/contact" class="btn btn-primary btn-block">
+          Commencez un projet
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: var(--space-2xl) 0;
+    background: linear-gradient(135deg, var(--background) 0%, var(--background-secondary) 100%);
+  }
+
+  .about-section h2 {
+    margin-bottom: var(--space-xl);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-lg);
+    color: var(--text-secondary);
+  }
+
+  .skills-sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+    margin-top: var(--space-xl);
+  }
+
+  .skills-category h3 {
+    color: var(--primary);
+    margin-bottom: var(--space-lg);
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: var(--space-md);
+  }
+
+  .skills-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    border-radius: 2px;
+  }
+
+  .skills-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2rem;
+    padding: var(--space-lg);
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+  }
+
+  .about-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .about-card {
+    background: white;
+    padding: var(--space-lg);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+  }
+
+  .about-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
+
+  .about-card h3 {
+    margin-bottom: var(--space-md);
+    color: var(--primary);
+  }
+
+  .info-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .info-list div {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-md);
+  }
+
+  .info-list div:last-child {
+    border-bottom: none;
+  }
+
+  .info-list dt {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    font-size: 0.95rem;
+  }
+
+  .info-list dd {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .about-content {
+      grid-template-columns: 1fr;
+    }
+
+    .skills-charts-grid {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-section {
+      padding: var(--space-xl) 0;
+    }
+
+    .about-section h2 {
+      font-size: 1.875rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .skills-sections {
+      gap: var(--space-xl);
+    }
+
+    .skills-charts-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      padding: var(--space-md);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .skills-charts-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding: var(--space-sm);
+    }
+  }
+</style>

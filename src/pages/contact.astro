@@ -1,0 +1,54 @@
+---
+/**
+ * Contact Page
+ * Page de contact avec formulaire
+ */
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout 
+  title="Contact" 
+  description="Contactez-moi pour discuter de vos projets"
+  pathname="/contact"
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Contactez-moi</h1>
+      <p>Je serais heureux de discuter de votre prochain projet</p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <ContactForm />
+</Layout>
+
+<style>
+  .page-header {
+    padding: var(--space-2xl) 0;
+    background-color: var(--background-alt);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .page-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .page-header {
+      padding: var(--space-xl) 0;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

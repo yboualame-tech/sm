@@ -1,0 +1,86 @@
+---
+/**
+ * Projects Page
+ * Page affichant tous les projets
+ */
+import Layout from '../layouts/Layout.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import { portfolioData } from '../data/portfolio';
+
+const { projects } = portfolioData;
+---
+
+<Layout 
+  title="Projets" 
+  description="Découvrez tous mes projets et réalisations"
+  pathname="/projects"
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Mes Projets</h1>
+      <p>Découvrez tous les projets sur lesquels j'ai travaillé</p>
+    </div>
+  </section>
+
+  <!-- Projects Grid -->
+  <ProjectsSection items={projects} featured={false} />
+
+  <!-- Additional Info -->
+  <section class="more-info">
+    <div class="container">
+      <h2>Plus de projets?</h2>
+      <p>Consultez mon profil GitHub pour voir tous mes projets et contributions open source.</p>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        Voir mon GitHub
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    padding: var(--space-2xl) 0;
+    background-color: var(--background-alt);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .page-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+  }
+
+  .more-info {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    background-color: var(--background);
+  }
+
+  .more-info h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .more-info p {
+    margin-bottom: var(--space-lg);
+    font-size: 1.05rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .page-header {
+      padding: var(--space-xl) 0;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .more-info {
+      padding: var(--space-xl) 0;
+    }
+  }
+</style>

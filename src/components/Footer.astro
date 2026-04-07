@@ -1,0 +1,163 @@
+---
+/**
+ * Footer Component
+ * Pied de page du portfolio
+ */
+import { portfolioData } from '../data/portfolio';
+
+const year = new Date().getFullYear();
+const { contact } = portfolioData;
+---
+
+<footer class="footer">
+  <div class="container footer-content">
+    <div class="footer-section">
+      <h3>Yousef Boualame</h3>
+      <p>Développeur Full Stack | Casablanca, Maroc</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/#about">À propos</a></li>
+        <li><a href="/projects">Projets</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Me suivre</h4>
+      <ul class="footer-social">
+        {contact.social.github && (
+          <li>
+            <a href={contact.social.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </li>
+        )}
+        {contact.social.linkedin && (
+          <li>
+            <a href={contact.social.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </li>
+        )}
+        {contact.social.twitter && (
+          <li>
+            <a href={contact.social.twitter} target="_blank" rel="noopener noreferrer">
+              Twitter
+            </a>
+          </li>
+        )}
+        {contact.social.email && (
+          <li>
+            <a href={`mailto:${contact.social.email}`}>
+              Email
+            </a>
+          </li>
+        )}
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {year} Yousef Boualame. Tous droits réservés.</p>
+    <p>Créé avec <span class="heart">♥</span> utilisant Astro</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--background-alt);
+    border-top: 1px solid var(--border);
+    padding: var(--space-2xl) 0;
+    margin-top: var(--space-2xl);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+  }
+
+  .footer-section p {
+    margin-bottom: var(--space-xs);
+    color: var(--text-secondary);
+  }
+
+  .footer-links,
+  .footer-social {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-links a,
+  .footer-social a {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-links a:hover,
+  .footer-social a:hover {
+    color: var(--accent);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .heart {
+    color: var(--accent);
+    animation: heartbeat 1s ease-in-out infinite;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .footer {
+      padding: var(--space-xl) 0;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .footer-bottom {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+</style>
